@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br />
+
+<!-- Link for Create Category -->
+<a href="{{ url_for('product.create') }}" class="btn btn-primary">Create Product</a>
+<br>
+<br>
+
+<h2>Product List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category_name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category_id }}</td>
+            <td>
+                <a href="{{ url_for('product.edit', id=product.id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ url_for('product.delete', id=product.id) }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

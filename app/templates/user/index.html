@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Create User Link -->
+<div class="text-right">
+    <a href="{{ url_for('main.create') }}" class="btn btn-primary">Create User</a>
+</div>
+
+<br />
+
+<h2>Users List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <a href="{{ url_for('main.edit', id=user.id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    {% endblock %}

@@ -1,0 +1,28 @@
+cmd:
+C:\Users\JAGANNATH\db> sqlite3 mydb.db
+
+sqlite> .tables
+STUDENT      TEACHER      UserDetails  category     product      user
+
+sqlite> Select * from user;
+1|hari|hariprasad@gmail.com|hari|123456
+2|ram|ram.1@gmail.com|ram|123456
+3|jagan|jagan@gmail.com|jagan|123456
+
+sqlite> .schema user
+CREATE TABLE user (
+        id INTEGER NOT NULL,
+        name VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        username VARCHAR(100) NOT NULL,
+        password VARCHAR(100) NOT NULL,
+        PRIMARY KEY (id)
+);
+
+
+run:
+
+pip install -r requirements.txt
+
+python run.py  
+
